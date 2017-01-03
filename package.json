@@ -1,0 +1,23 @@
+{
+  "name": "abousenotification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leolee1986/abuse_notification.git"
+  },
+  "author": "leo li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leolee1986/abuse_notification/issues"
+  },
+  "homepage": "https://github.com/leolee1986/abuse_notification#readme",
+  "dependencies": {
+    "ejs": "^2.5.5",
+    "express": "^4.14.0"
+  }
+}
