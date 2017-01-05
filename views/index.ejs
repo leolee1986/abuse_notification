@@ -3,6 +3,10 @@
 
 <h1>Home Page</h1>
 
+<% notifications.forEach(function(notification){ %>
+    <h5><%=notification.notificationId%></h5>
+    <h5><%=notification.notificationDate%></h5>
+<% }); %>
 
 
 <% include ../partials/footer %>

@@ -1,9 +1,8 @@
 var mongoose = require("mongoose");
 
 var notificationSchema = new mongoose.Schema({
-    id: String,
-    date: Date,
-    ibcap_ch : []
+    notificationId: String,
+    notificationDate: Date
 });
 
 module.exports = mongoose.model("Notification", notificationSchema);

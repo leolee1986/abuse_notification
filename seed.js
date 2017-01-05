@@ -14,16 +14,7 @@ var data = [
             id: "test003",
             date: "@{currentdate}"
         }
-    ]
+    ];
 
 
-function seedDB(){
-    //   Remove all database date to test 
-        Notification.remove({},function(err){
-        if(err){
-           console.log(err); 
-        }
-        console.log("removed notifications!");
-}
 
-// export seedDB
