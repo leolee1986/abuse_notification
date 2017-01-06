@@ -38,7 +38,13 @@ app.get("/notifications/new", function(req, res){
 
 // SHOW Route
 app.get("/notifications/:id", function(req, res){
-    res.render("show");
+    Notification.findById(req.params.id,function(err, foundNotification){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("show",{notification: foundNotification})
+        }
+    });
 });
 
 // CREATE Route

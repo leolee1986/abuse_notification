@@ -1,12 +1,21 @@
 <% include ../partials/header %>
 
-
-<h1>Home Page</h1>
-
-<% notifications.forEach(function(notification){ %>
-    <h5><%=notification.notificationId%></h5>
-    <h5><%=notification.notificationDate%></h5>
-<% }); %>
-
+<div class="containter">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Notification Letter</h1>
+        </div>
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <% notifications.forEach(function(notification){ %>
+                        <h5><%=notification.notificationId%></h5>
+                        <h5><%=notification.notificationDate%></h5>
+                        <h5><%=notification.notificationRecipient%></h5>
+                        <a href="/notifications/<%=notification._id%>" class="btn btn-primary">Click For Detail</a>
+                <% }); %> 
+            </div>
+        </div>
+    </div>
+</div>
 
 <% include ../partials/footer %>

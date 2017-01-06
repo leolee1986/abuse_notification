@@ -1,7 +1,13 @@
 <% include ../partials/header %>
 
-<h1>This is the show route</h1>
-
-
+<h1>Notification Detail</h1>
+    
+    <h4>The Notification ID:</h4>
+    <%=notification.notificationId%>
+    <h4>The Notification is created on</h4>
+    <%=notification.notificationDate%>
+    
+    <h4>We sent the notification to:</h4>
+    <%=notification.notificationRecipient%>
 
 <% include ../partials/footer %>
