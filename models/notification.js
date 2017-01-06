@@ -4,6 +4,7 @@ var notificationSchema = new mongoose.Schema({
     notificationId: String,
     notificationDate: Date,
     notificationRecipient: String
+    //notificationSent: Boolean
 });
 
 module.exports = mongoose.model("Notification", notificationSchema);

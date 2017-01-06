@@ -52,7 +52,12 @@ app.post("/notifications", function(req, res){
     // get data from form and add to notifications array
     var notificationId = req.body.notificationId;
     var notificationDate = req.body.notificationDate;
-    var newNotification = {notificationId: notificationId, notificationDate: notificationDate};
+    var notificationRecipient = req.body.notificationRecipient;
+    var newNotification = {
+        notificationId: notificationId, 
+        notificationDate: notificationDate, 
+        notificationRecipient:notificationRecipient
+    };
     
     // Create a new notification and save to DB
     Notification.create(newNotification, function(err){
@@ -65,7 +70,10 @@ app.post("/notifications", function(req, res){
     });
 });
 
-
+// EDIT Route
+app.get("/notifications/:id/edit", function(req, res) {
+    res.render("edit");
+});
 
 
 
