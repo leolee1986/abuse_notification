@@ -1,13 +1,15 @@
-var express       = require("express"),
-    mongoose      = require("mongoose"),
-    Notification  = require("./models/notification"),
-    seedDB        = require("./seed"),
-    bodyParser    = require("body-parser"),
-    app           = express();
+var express        = require("express"),
+    mongoose       = require("mongoose"),
+    Notification   = require("./models/notification"),
+    seedDB         = require("./seed"),
+    bodyParser     = require("body-parser"),
+    methodOverride = require("method-override"),
+    app            = express();
 
 app.set("view engine", "ejs");
 // use body-parser to parse the form data
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 mongoose.connect("mongodb://localhost/abuse_notification");
 
 //===============
@@ -72,7 +74,25 @@ app.post("/notifications", function(req, res){
 
 // EDIT Route
 app.get("/notifications/:id/edit", function(req, res) {
-    res.render("edit");
+    Notification.findById(req.params.id,function(err,foundNotification){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("edit",{notification: foundNotification});
+        }
+    });
+
+});
+
+// UPDATE Route
+app.post("/notifciations/:id", function(req, res){
+    Notification.findByIdAndUpdate(req.params.id, req.body.notification, function(err, updatedNotification) {
+        if(err){
+            res.redirect("/notifications");
+        }else{
+            res.redirect("/notifications/" + req.params.id);
+        }
+    });
 });
 
 
