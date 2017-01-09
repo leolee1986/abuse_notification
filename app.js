@@ -115,6 +115,10 @@ app.get("/channels", function(req, res) {
     res.render("channels");
 })
 
+// Channels NEW Route
+app.get("/channels/new", function(req, res){
+    res.render("./channels/new");
+});
 
 
 //==============================
