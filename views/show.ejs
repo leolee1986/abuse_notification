@@ -11,6 +11,12 @@
     <h4>We sent the notification to:</h4>
     <%=notification.notificationRecipient%>
     
-    <a href="/notifications/<%=notification._id%>/edit" class="btn btn-info">Edit</a>
+    <form class="form-group">
+        <a href="/notifications/<%=notification._id%>/edit" class="btn btn-info">Edit</a>
+    </form>
+    <form class="form-group" id="delete" action="/notifications/<%=notification._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-danger">Delete</button>
+    </form>
+
 
 <% include ../partials/footer %>

@@ -9,13 +9,14 @@
             
             <div class="form-group">
             <label>Date</label>
-            <input class="form-control" type="date" name="notification[notificationDate]" value="<%=notification.notificationDate%>">
+            <input id="datePicker" class="form-control" type="date" name="notification[notificationDate]" >
             </div>
             
             <div  class="form-group">
             <label>Email Recipient</label>
             <input class="form-control" type="email" name="notification[notificationRecipient]" value="<%=notification.notificationRecipient%>">
             </div>
+            
             
             <div  class="form-group">
             <input class="form-control btn btn-info" type="submit" >
@@ -24,26 +25,9 @@
     </div>
 
 
-
-<!--==========================================-->
-<!--<div class="ui main text container segment">-->
-<!--    <div class="ui huge header"> Edit </div>-->
-<!--    <form class="ui form" action="/blogs/?_method=PUT" method="POST">-->
-<!--        <div class="field">-->
-<!--            <label>Title</label>-->
-<!--            <input type="text" name=blog[title] value="">            -->
-<!--        </div>-->
-<!--        <div class="field">-->
-<!--            <label>Image</label>-->
-<!--            <input type="text" name=blog[image] value="">-->
-<!--        </div>-->
-<!--        <div class="field">-->
-<!--            <label>Blog Content</label>-->
-<!--            <textarea name=blog[body]>"></textarea>-->
-<!--        </div>-->
-<!--        <input class="ui blue big inverted button" type="submit">-->
-<!--    </form>-->
-<!--</div>-->
-
-
 <% include ../partials/footer %>
+
+<script>
+    // add today's date as default value for the datePicker
+    document.getElementById('datePicker').valueAsDate = new Date();
+</script>

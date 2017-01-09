@@ -85,19 +85,35 @@ app.get("/notifications/:id/edit", function(req, res) {
 });
 
 // UPDATE Route
-app.post("/notifciations/:id", function(req, res){
-    Notification.findByIdAndUpdate(req.params.id, req.body.notification, function(err, updatedNotification) {
+app.put("/notifications/:id", function(req, res){
+    // findByIdAndUpdate take 3 args, id, newData, callback
+    Notification.findByIdAndUpdate(req.params.id, req.body.notification, function(err, updatedNotification){
         if(err){
             res.redirect("/notifications");
         }else{
-            res.redirect("/notifications/" + req.params.id);
+            res.redirect("/notifications/" +req.params.id);
+        }
+    })
+});
+
+// DELETE Route
+app.delete("/notifications/:id", function(req, res){
+    // delete a notification, take 2 args, id callback
+    Notification.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/notifications");
         }
     });
 });
 
+// Channels ==============================
 
-
-
+// Channels INDEX route
+app.get("/channels", function(req, res) {
+    res.render("channels");
+})
 
 
 
