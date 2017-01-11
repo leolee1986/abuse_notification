@@ -1,6 +1,7 @@
 var express        = require("express"),
     mongoose       = require("mongoose"),
     Notification   = require("./models/notification"),
+    Channel        = require("./models/channel"),
     seedDB         = require("./seed"),
     bodyParser     = require("body-parser"),
     methodOverride = require("method-override"),
@@ -13,7 +14,7 @@ app.use(methodOverride("_method"));
 mongoose.connect("mongodb://localhost/abuse_notification");
 
 //===============
-// Route 
+// Notificaiton Route 
 //===============
 app.get("/", function(req, res) {
     res.redirect("/notifications");
@@ -108,16 +109,46 @@ app.delete("/notifications/:id", function(req, res){
     });
 });
 
-// Channels ==============================
+//========================================
+// Channels Routes
+//========================================
 
 // Channels INDEX route
 app.get("/channels", function(req, res) {
-    res.render("channels");
+    res.render("./channels/channels");
 })
 
 // Channels NEW Route
 app.get("/channels/new", function(req, res){
     res.render("./channels/new");
+});
+
+// Channels CREATE Route
+app.post('/channels', function(req, res){
+    // get data from form
+    var channelName = req.body.channelName;
+    var programmer = req.body.programmer;
+    var logo = req.body.logo;
+    var poa = req.body.poa;
+    var newChannel = {
+        channelName:channelName,
+        programmer:programmer,
+        logo:logo,
+        poa:poa
+    };
+    //create a new channel and save to DB
+    Channel.create(newChannel, function(err){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/channels");
+        }
+    });
+});
+
+// Channels SHOW Route
+app.get("/channels/:id",function(req, res) {
+   res.render("./channels/show"); 
 });
 
 
