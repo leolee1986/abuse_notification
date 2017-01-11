@@ -137,11 +137,13 @@ app.post('/channels', function(req, res){
     var programmer = req.body.programmer;
     var logo = req.body.logo;
     var poa = req.body.poa;
+    var language = req.body.language;
     var newChannel = {
         channelName:channelName,
         programmer:programmer,
         logo:logo,
-        poa:poa
+        poa:poa,
+        language:language
     };
     //create a new channel and save to DB
     Channel.create(newChannel, function(err){
@@ -164,6 +166,17 @@ app.get("/channels/:id",function(req, res) {
     })
 });
 
+
+// Channels Edit Route
+app.get("/channels/:id/edit", function(req, res) {
+    Channel.findById(req.params.id, function(err, foundChannel) {
+        if(err){
+            console.log(err);
+        }else{
+            res.render("./channels/edit", {channel:foundChannel});
+        }
+    })
+});
 
 //==============================
 app.listen(process.env.PORT, process.env.IP, function(){

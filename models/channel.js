@@ -4,7 +4,8 @@ var channelSchema = new mongoose.Schema({
     channelName: String,
     programmer: String,
     poa: Boolean,
-    logo: String
+    logo: String,
+    language: String
     
 });
 
