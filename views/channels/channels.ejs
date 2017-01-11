@@ -1,5 +1,14 @@
 <% include ../../partials/header %>
+    <h1>All IBCAP Channels</h1>
     
+                    <% channels.forEach(function(channel){ %>
+                    
+                            <h5><%=channel.channelName%></h5>
+                            <img src="<%=channel.logo%>">
+                            <h5>Channel programmer: <%= channel.programmer%></h5>
+                            <a href="/channels/<%=channel._id%>" class="btn btn-primary">Click For More Info</a>
+
+                    <% }); %> 
     
 
 <% include ../../partials/footer %>

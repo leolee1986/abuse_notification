@@ -115,7 +115,14 @@ app.delete("/notifications/:id", function(req, res){
 
 // Channels INDEX route
 app.get("/channels", function(req, res) {
-    res.render("./channels/channels");
+        Channel.find({},function(err, allChannels){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("./channels/channels",{channels:allChannels});
+        }
+    });
+
 })
 
 // Channels NEW Route
@@ -148,7 +155,13 @@ app.post('/channels', function(req, res){
 
 // Channels SHOW Route
 app.get("/channels/:id",function(req, res) {
-   res.render("./channels/show"); 
+    Channel.findById(req.params.id, function(err, foundChannel) {
+        if(err){
+            console.log(err);
+        }else{
+            res.render("./channels/show", {channel:foundChannel}); 
+        }
+    })
 });
 
 

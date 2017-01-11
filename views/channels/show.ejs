@@ -1,6 +1,43 @@
 <% include ../../partials/header %>
 
-   <h1>channels show route</h1>
-
+<div class="containter">
+    <div class="row">
+        <div class="col-md-2 panel panel-default" >
+            <div class="panel-heading  text-center"><h1>Detail Info</h1></div>
+            <div class="panel-body">
+                <a href="" class="btn btn-info">Update Info</a>
+                <a href="" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Channel Name</div>
+                <div class="panel-body">
+                    <strong><%=channel.channelName%></strong>
+                </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Channel Logo</div>
+                <div class="panel-body">
+                    <img src="<%=channel.logo%>">
+                </div>
+            </div>        
+            <div class="panel panel-default">
+              <div class="panel-heading">Channel Programmer</div>
+                <div class="panel-body">
+                    <%= channel.programmer%>
+                </div>
+            </div>  
+            <div class="panel panel-default">
+              <div class="panel-heading">Do We have POA</div>
+                <div class="panel-body">
+                    <%= channel.poa%>
+                </div>
+            </div>  
+        </div>
+        <div class="col-md-2"></div>
+        
+    </div>
+</div>
 
 <% include ../../partials/footer %>
