@@ -5,8 +5,12 @@
         <div class="col-md-2 panel panel-default" >
             <div class="panel-heading  text-center"><h1>Detail Info</h1></div>
             <div class="panel-body">
-                <a href="/channels/<%=channel._id%>/edit" class="btn btn-info">Update Info</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <form class="form-group">
+                  <a href="/channels/<%=channel._id%>/edit" class="btn btn-info">Update Channel Info</a>
+                </form>
+                <form class="form-group" action="/channels/<%=channel._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete Channel</button>
+                </form>
             </div>
         </div>
         <div class="col-md-8">

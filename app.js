@@ -178,6 +178,30 @@ app.get("/channels/:id/edit", function(req, res) {
     })
 });
 
+// Channels UPDATE Route
+app.put("/channels/:id", function(req, res){
+    Channel.findByIdAndUpdate(req.params.id, req.body.channel, function(err, updatedChannel){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/channels/"+req.params.id);
+        }
+    });
+});
+
+// Channels Delete Route
+app.delete("/channels/:id", function(req, res){
+    // delete a notification, take 2 args, id callback
+    Channel.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/channels");
+        }
+    });
+});
+
+
 //==============================
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Server started");

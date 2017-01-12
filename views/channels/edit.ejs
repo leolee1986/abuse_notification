@@ -9,100 +9,100 @@
             </div>
         </div>
 
-                <form action="/channels/<%=channel._id%>?_method=PUT" method="POST">
+    
+        <form action="/channels/<%=channel._id%>?_method=PUT" method="POST">
+            <div class="form-group">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <label>Channel Name</label>
+                    </div>
+                    <div class="panel-body">
+                        <input class="form-control" type="text" name="channel[channelName]" value="<%=channel.channelName%>">
+                    </div>
+                </div>
 
-                    <div class="form-group">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <label>Channel Name</label>
-                            </div>
-                            <div class="panel-body">
-                                <input class="form-control" type="text" name="channel[channelName]" value="<%=channel.channelName%>">
-                            </div>
-                        </div>
+            </div>
+            <div class="form-group">
+                <div class="panel panel-info">
+                    <div class="panel-heading"><label>Programmer</label></div>
+                    <div class="panel-body">
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Aastha"><label>Aastha &nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Al Jazeera"><label>Al Jazeera&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="ARY (ARY Digital )"><label>ARY (ARY Digital )&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Asia TV USA"><label>Asia TV USA&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="ATN"><label>ATN&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="B4U"><label>B4U&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="beIN"><label>beIN&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Bennett, Coleman & co"><label>Bennett, Coleman & co&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Dream"><label>Dream&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Future"><label>Future&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="GEO"><label>GEO&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Globosat"><label>Globosat&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Hum Network"><label>Hum Network&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="IMD"><label>IMD&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Impress Telefilm"><label>Impress Telefilm&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="MBC FZ"><label>MBC FZ&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="MSM (MSM Asia)"><label>MSM (MSM Asia)&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="National Communication Services"><label>National Communication Services&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="NDTV"><label>NDTV&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Reliance"><label>Reliance&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="SAFE (Asia Star Broadcasting )"><label>SAFE (Asia Star Broadcasting )&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Soundview Broadcasting"><label>Soundview Broadcasting&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Star"><label>Star&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="TV Today"><label>TV Today&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="TV5 USA"><label>TV5 USA&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Ushodaya Enterprises"><label>Ushodaya Enterprises&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Viacom"><label>Viacom&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="Willow"><label>Willow&nbsp;&nbsp;</label>
+                        <input class="radio-inline" type="radio" name="channel[programmer]" value="World Span Media"><label>World Span Media&nbsp;&nbsp;</label>
                     </div>
-                    <div class="form-group">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <label>Programmer</label>
-                            </div>
-                            <div class="panel-body">
-                                <input class="radio-inline" type="radio" name="programmer" value="Aastha">Aastha</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Al Jazeera">Al Jazeera</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="ARY (ARY Digital )">ARY (ARY Digital )</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Asia TV USA">Asia TV USA</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="ATN">ATN</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="B4U">B4U</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="beIN">beIN</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Bennett, Coleman & co">Bennett, Coleman & co</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Dream">Dream</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Future">Future</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="GEO">GEO</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Globosat">Globosat</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Hum Network">Hum Network</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="IMD">IMD</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Impress Telefilm">Impress Telefilm</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="MBC FZ">MBC FZ</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="MSM (MSM Asia)">MSM (MSM Asia)</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="National Communication Services">National Communication Services</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="NDTV">NDTV</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Reliance">Reliance</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="SAFE (Asia Star Broadcasting )">SAFE (Asia Star Broadcasting )</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Soundview Broadcasting">Soundview Broadcasting</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Star">Star</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="TV Today">TV Today</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="TV5 USA">TV5 USA</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Ushodaya Enterprises">Ushodaya Enterprises</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Viacom">Viacom</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="Willow">Willow</label>
-                                <input class="radio-inline" type="radio" name="programmer" value="World Span Media">World Span Media</label>
-                            </div>
-                        </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h5><strong>Current Logo. Please update logo link is logo is not correct</strong></h5>
+                        <label>Logo Link</label>
                     </div>
-        
-                    <div class="form-group">
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                <label>Logo Link</label>
-                                <h5><strong>Current Logo. Please update logo link is logo is not correct</strong></h5>
-                            </div>
-                            <div class="panel-body">
-                                <img src="<%= channel.logo %>" >
-                                <input class="form-control" type="text" name="logo" value="<%= channel.logo %>">
-                            </div>
-                        </div>
+                    <div class="panel-body">
+                        <img src="<%= channel.logo %>" >
+                        <input class="form-control" type="text" name="channel[logo]" value="<%= channel.logo %>">
                     </div>
-                    <div class="form-group">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h5>Do we have POA</h5>
-                            </div>
-                            <div class="panel-body">
-                                <input class="radio-inline" type="radio" name="poa" value="true">Yes</label>
-                                <input class="radio-inline" type="radio" name="poa" value="flase">No</label>                                
-                            </div>
-                        </div>                        
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h5>Do we have POA</h5>
                     </div>
-                    <div class="form-group">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h5>Language Group</h5>
-                            </div>
-                            <div class="panel-body">
-                                <input class="radio-inline" type="radio" name="language" value="arabic">ARABIC</label>
-                                <input class="radio-inline" type="radio" name="language" value="bangla">BANGLA</label>
-                                <input class="radio-inline" type="radio" name="language" value="urdu">URDU</label>
-                                <input class="radio-inline" type="radio" name="language" value="french">FRENCH</label>
-                                <input class="radio-inline" type="radio" name="language" value="hindi">HINDI</label>                                
-                            </div>
-                        </div>
+                    <div class="panel-body">
+                        <input class="radio-inline" type="radio" name="channel[poa]" value="true">Yes</label>
+                        <input class="radio-inline" type="radio" name="channel[poa]" value="false">No</label>
                     </div>
-                        
-                    <div  class="form-group">
-                        <input class="form-control btn btn-info" type="submit" >
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h5>Language Group</h5>
                     </div>
-                </form>
+                    <div class="panel-body">
+                        <input class="radio-inline" type="radio" name="channel[language]" value="arabic">ARABIC</label>
+                        <input class="radio-inline" type="radio" name="channel[language]" value="bangla">BANGLA</label>
+                        <input class="radio-inline" type="radio" name="channel[language]" value="urdu">URDU</label>
+                        <input class="radio-inline" type="radio" name="channel[language]" value="french">FRENCH</label>
+                        <input class="radio-inline" type="radio" name="channel[language]" value="hindi">HINDI</label>  
+                    </div>
+                </div>
+            </div>
+                    
+            <div  class="form-group">
+                <input class="form-control btn btn-info" type="submit" >
+            </div>
+        </form>
     </div>
-
 
 <% include ../../partials/footer %>
