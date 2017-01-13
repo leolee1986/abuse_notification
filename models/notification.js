@@ -3,7 +3,11 @@ var mongoose = require("mongoose");
 var notificationSchema = new mongoose.Schema({
     notificationId: String,
     notificationDate: Date,
-    notificationRecipient: String
+    notificationRecipient: String,
+    channels: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Channel"
+    }]
     //notificationSent: Boolean
 });
 

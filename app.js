@@ -35,7 +35,14 @@ app.get("/notifications", function(req, res){
 
 // NEW Route
 app.get("/notifications/new", function(req, res){
-   res.render("new"); 
+    Channel.find({}, function(err, allChannels) {
+        if(err){
+            console.log(err);
+        }else{
+            res.render("new", {channels:allChannels});
+        }
+    });
+    
 });
 
 
