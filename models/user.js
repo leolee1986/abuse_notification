@@ -9,4 +9,4 @@ var UserSchema = new mongoose.Schema({
 //use the plugin method
 UserSchema.plugin(passportLocalMongoose);
 
-module.exports = UserSchema;
+module.exports = mongoose.model("User", UserSchema);

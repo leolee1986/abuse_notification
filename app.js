@@ -5,7 +5,6 @@ var express        = require("express"),
     User           = require("./models/user"),
     passport       = require("passport"),
     LocalStrategy  = require("passport-local"),
-    seedDB         = require("./seed"),
     bodyParser     = require("body-parser"),
     methodOverride = require("method-override"),
     app            = express();
@@ -233,6 +232,25 @@ app.delete("/channels/:id", function(req, res){
 app.get("/register", function(req, res) {
     res.render("register");
 });
+
+// handle sign up logic
+app.post("/register", function(req, res){
+    var newUser = new User({
+        username: req.body.username
+    });
+    //User.register() provided by passport-local-mongoose
+    // register() take 3 args, user, password and callback function
+    User.register(newUser, req.body.password, function(err,user){
+        if(err){
+            console.log(err);
+            return res.render("/register");
+        }
+        passport.authenticate("local")(req, res, function(){
+            res.redirect("/notifications");
+        });
+    });
+});
+
 
 
 //==============================
