@@ -2,6 +2,9 @@ var express        = require("express"),
     mongoose       = require("mongoose"),
     Notification   = require("./models/notification"),
     Channel        = require("./models/channel"),
+    User           = require("./models/user"),
+    passport       = require("passport"),
+    LocalStrategy  = require("passport-local"),
     seedDB         = require("./seed"),
     bodyParser     = require("body-parser"),
     methodOverride = require("method-override"),
@@ -12,6 +15,21 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 mongoose.connect("mongodb://localhost/abuse_notification");
+
+// PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    //secret can be anything, the resave and saveUnitialized needed to be added, be sure to spell them correctly
+    secret:"cici is the best",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+// User.authenticate() is a method that come from passport-local-mongoose
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //===============
 // Notificaiton Route 
@@ -206,6 +224,14 @@ app.delete("/channels/:id", function(req, res){
             res.redirect("/channels");
         }
     });
+});
+
+
+//==============================
+// AUTH Route
+//==============================
+app.get("/register", function(req, res) {
+    res.render("register");
 });
 
 
