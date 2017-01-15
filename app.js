@@ -18,7 +18,7 @@ mongoose.connect("mongodb://localhost/abuse_notification");
 //===============
 app.get("/", function(req, res) {
     res.redirect("/notifications");
-})
+});
 
 // INDEX Route
 app.get("/notifications", function(req, res){

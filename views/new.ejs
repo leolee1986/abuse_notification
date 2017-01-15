@@ -17,13 +17,7 @@
                     <label>Where we are sending this letter</label>
                     <input class="form-control" type="email" name="notificationRecipient" placeholder="Recipient Email">
                 </div>
-                <div>
-                    <h5>Select The IBCAP Channel</h5>
-                    <% channels.forEach(function(channel){ %>
-                        <input type="checkbox" name="<%=channel.channelName%>" value="<%=channel.channelName%>"><%=channel.channelName%></input>
 
-                    <% }); %> 
-                </div>
                 <div>
                     <button class="btn btn-primary">Create</button>
                 </div>                
