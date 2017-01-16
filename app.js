@@ -51,7 +51,7 @@ app.get("/notifications", function(req, res){
 
 
 // NEW Route
-app.get("/notifications/new", function(req, res){
+app.get("/notifications/new",isLoggedIn, function(req, res){
     Channel.find({}, function(err, allChannels) {
         if(err){
             console.log(err);
@@ -75,7 +75,7 @@ app.get("/notifications/:id", function(req, res){
 });
 
 // CREATE Route
-app.post("/notifications", function(req, res){
+app.post("/notifications",isLoggedIn, function(req, res){
     // get data from form and add to notifications array
     var notificationId = req.body.notificationId;
     var notificationDate = req.body.notificationDate;
@@ -150,12 +150,12 @@ app.get("/channels", function(req, res) {
 })
 
 // Channels NEW Route
-app.get("/channels/new", function(req, res){
+app.get("/channels/new", isLoggedIn,function(req, res){
     res.render("./channels/new");
 });
 
 // Channels CREATE Route
-app.post('/channels', function(req, res){
+app.post('/channels',isLoggedIn, function(req, res){
     // get data from form
     var channelName = req.body.channelName;
     var programmer = req.body.programmer;
@@ -264,6 +264,19 @@ app.post("/login", passport.authenticate("local", {
     
 });
 
+// logout logic
+app.get("/logout", function(req, res) {
+   req.logout();
+   res.redirect("/notifications");
+});
+
+// middleware to check if user is logged in
+function isLoggedIn (req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 //==============================
 app.listen(process.env.PORT, process.env.IP, function(){
