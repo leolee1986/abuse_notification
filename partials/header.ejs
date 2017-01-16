@@ -31,9 +31,16 @@
         <li><a href="/">Show All Notification</a></li>
         <li><a href="/channels/new">Add New IBCAP channel</a></li>
         <li><a href="/channels">Show All IBCAP Channels</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Sign Up</a></li>
-        <li><a href="/logout">Logout</a></li>
+        
+        <% if(!currentUser){ %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Sign Up</a></li>        
+        <% }else{ %>
+          <li><a href="#">Welcome, <%= currentUser.username %></a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% } %>
+
+        
       </ul>
 
     </div><!-- /.navbar-collapse -->

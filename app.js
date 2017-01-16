@@ -30,6 +30,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// this is a middleware that pass to all route (the res.locals), then run the next function
+app.use(function(req, res, next){
+   res.locals.currentUser = req.user;
+   next();
+});
+
+
 //===============
 // Notificaiton Route 
 //===============

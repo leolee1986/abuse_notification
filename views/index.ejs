@@ -2,25 +2,31 @@
 
 <div class="containter">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="containter-fluid">
-                <div class="jumbotron">
-                    <h1>Notification Letter</h1>
-                    <div class="text-center">
-                    <% notifications.forEach(function(notification){ %>
-                            <h5><%=notification.notificationId%></h5>
-                            <h5><%=notification.notificationDate%></h5>
-                            <h5><%=notification.notificationRecipient%></h5>
-                            <a href="/notifications/<%=notification._id%>" class="btn btn-primary">Click For Detail</a>
-                    <% }); %> 
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3>Notification Letter</h3>
+                    </div>
+                    <div class="panel-body">
+                            
+                        <% notifications.forEach(function(notification){ %>
+                            <div>
+                                <h5><strong>ID:</strong> <%=notification.notificationId%></h5>
+                                <h5><strong>Create Date:</strong> <%=notification.notificationDate.toISOString().split('T')[0]%></h5>
+                                <h5><strong>To:</strong> <%=notification.notificationRecipient%></h5>
+                                <a href="/notifications/<%=notification._id%>" class="btn btn-primary">Click For Detail</a>
+                            </div>
+                        <% }); %> 
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             
         </div>
     </div>

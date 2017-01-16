@@ -1,25 +1,32 @@
 <% include ../partials/header %>
 
-<h1>Notification Detail</h1>
-    
-    <h4>The Notification ID:</h4>
-    <%=notification.notificationId%>
-    
-    <h4>The Notification is created on</h4>
-    <%=notification.notificationDate%>
-    
-    <h4>We sent the notification to:</h4>
-    <%=notification.notificationRecipient%>
-    
-    <h4>IBCAP channel are</h4>
-    <%=notification.channels.channelName%>
-    
-    <form class="form-group">
-        <a href="/notifications/<%=notification._id%>/edit" class="btn btn-info">Edit</a>
-    </form>
-    <form class="form-group" id="delete" action="/notifications/<%=notification._id%>?_method=DELETE" method="POST">
-        <button class="btn btn-danger">Delete</button>
-    </form>
 
+    <div class="row">
+        <div class="col-md-2">
+            <div class="container">
+            <form class="form-group">
+                <a href="/notifications/<%=notification._id%>/edit" class="btn btn-info">Edit</a>
+            </form>
+            <form class="form-group" id="delete" action="/notifications/<%=notification._id%>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="container">
+            <h2>Notification Detail</h2>
+            
+            <h4>The Notification ID:</h4>
+            <%=notification.notificationId%>
+            
+            <h4>The Notification is created on</h4>
+            <%=notification.notificationDate%>
+            
+            <h4>We sent the notification to:</h4>
+            <%=notification.notificationRecipient%>
+            
+            </div>
+        </div>
+    </div>
 
 <% include ../partials/footer %>
